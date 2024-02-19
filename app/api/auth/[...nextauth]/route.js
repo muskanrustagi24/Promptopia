@@ -1,5 +1,4 @@
 import NextAuth from 'next-auth';
-import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 
 import User from '@models/user';
@@ -10,12 +9,7 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
-    }),
-    // GithubProvider({
-    //   clientId: process.env.GITHUB_CLIENT_ID,
-    //   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    //   allowDangerousEmailAccountLinking: true,
-    // })
+    })
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
